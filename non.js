@@ -28,19 +28,43 @@
   storyText.addEventListener('input', () => {
     storyCount.textContent = storyText.value.length + ' / 600';
   });
-  $('#storyForm').addEventListener('submit', e => {
+  $('#storyForm').addEventListener('submit', async e => {
     e.preventDefault();
+    const form = e.target;
     const ig = $('#storyIg').value.trim().replace(/^@/, '');
-    e.target.reset();
-    storyCount.textContent = '0 / 600';
-    toast('Story received, @' + ig + '. We\u2019ll be in touch.');
+    const btn = form.querySelector('button[type=submit]');
+    const orig = btn.textContent;
+    btn.disabled = true; btn.textContent = 'Sending\u2026';
+    try {
+      const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+      if (!res.ok) throw new Error('bad response');
+      form.reset();
+      storyCount.textContent = '0 / 600';
+      toast('Story received, @' + ig + '. We\u2019ll be in touch.');
+    } catch (err) {
+      toast('Something went wrong \u2014 try again in a bit.');
+    } finally {
+      btn.disabled = false; btn.textContent = orig;
+    }
   });
 
   /* ---- Newsletter / waitlist ---- */
-  $('#joinForm').addEventListener('submit', e => {
+  $('#joinForm').addEventListener('submit', async e => {
     e.preventDefault();
-    e.target.reset();
-    toast("You're in. Welcome to NON.");
+    const form = e.target;
+    const btn = form.querySelector('button[type=submit]');
+    const orig = btn.textContent;
+    btn.disabled = true; btn.textContent = 'Sending\u2026';
+    try {
+      const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+      if (!res.ok) throw new Error('bad response');
+      form.reset();
+      toast("You're in. Welcome to NON.");
+    } catch (err) {
+      toast('Something went wrong \u2014 try again in a bit.');
+    } finally {
+      btn.disabled = false; btn.textContent = orig;
+    }
   });
 
   /* ---- Value carousel (editorial) — one face visible at a time ---- */
