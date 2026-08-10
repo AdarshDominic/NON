@@ -167,13 +167,13 @@
         <div><span class="n">03</span><span class="t">We call. You talk.</span></div>
       </div>
     </div>
-    <form class="story-form reveal" style="transition-delay:.12s" id="storyForm">
+    <form class="story-form reveal" style="transition-delay:.12s" id="storyForm" action="https://formspree.io/f/xrpzprrl" method="POST">
       <div class="story-form-head"><span class="mono">// Guest Application</span><span class="mono" id="storyCount">0 / 600</span></div>
-      <textarea id="storyText" maxlength="600" rows="6" required placeholder="Where are you starting from, and what are you building? Keep it real." aria-label="Your story"></textarea>
+      <textarea id="storyText" name="story" maxlength="600" rows="6" required placeholder="Where are you starting from, and what are you building? Keep it real." aria-label="Your story"></textarea>
       <div class="story-row">
         <div class="ig-field">
           <span class="at">@</span>
-          <input type="text" id="storyIg" required placeholder="your.instagram" aria-label="Instagram handle" autocomplete="off" spellcheck="false">
+          <input type="text" id="storyIg" name="instagram" required placeholder="your.instagram" aria-label="Instagram handle" autocomplete="off" spellcheck="false">
         </div>
         <button class="btn btn--primary" type="submit">Send My Story <span class="arr">→</span></button>
       </div>
@@ -190,8 +190,8 @@
       <span class="eyebrow no-rule reveal" style="justify-content:center">Join the Movement</span>
       <h2 class="reveal" style="transition-delay:.05s;margin-top:18px">It's Never<br>Off Narrative</h2>
       <p class="reveal" style="transition-delay:.1s">Be first to know when NON Mode drops, hear the stories behind why we're building this, and get early access when we open the store. No noise. Just the mission.</p>
-      <form class="join-form reveal" style="transition-delay:.14s" id="joinForm">
-        <input type="email" placeholder="Your email" required aria-label="Email">
+      <form class="join-form reveal" style="transition-delay:.14s" id="joinForm" action="https://formspree.io/f/xvkpkdda" method="POST">
+        <input type="email" name="email" placeholder="Your email" required aria-label="Email">
         <button class="btn btn--primary" type="submit">Join <span class="arr">→</span></button>
       </form>
       <div class="join-fine reveal" style="transition-delay:.18s">No spam. Unsubscribe anytime.</div>
