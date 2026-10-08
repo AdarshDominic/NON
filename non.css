@@ -488,3 +488,19 @@ section{position:relative}
   .marquee-track{animation:none}
   .reveal{opacity:1;transform:none;transition:none}
 }
+
+/* NON MODE / DROP 001 — concealed pre-launch teaser */
+.non-teaser{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);background:var(--ink-1);border:1px solid var(--line);min-height:490px;overflow:hidden}
+.non-teaser-visual{position:relative;display:flex;align-items:center;justify-content:center;min-height:490px;background:radial-gradient(ellipse at 50% 44%,#1a274b 0%,#10131d 45%,#08090e 82%);overflow:hidden}
+.non-teaser-visual::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 31px,rgba(255,255,255,.025) 32px);pointer-events:none}
+.non-teaser-outline{display:block;width:min(82%,350px);max-height:420px;filter:drop-shadow(0 20px 42px rgba(0,0,0,.65))}
+.non-teaser-number,.non-teaser-classified{position:absolute;z-index:2;font:10px 'IBM Plex Mono',monospace;letter-spacing:.18em;color:var(--gray);text-transform:uppercase}
+.non-teaser-number{top:26px;left:28px}.non-teaser-classified{bottom:26px;left:28px}
+.non-teaser-copy{padding:clamp(32px,5vw,74px);display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:24px}
+.non-teaser-copy h2{font-size:clamp(36px,4.4vw,70px);line-height:.98;letter-spacing:-.055em;font-weight:900;text-transform:uppercase;margin:0}
+.non-teaser-copy p{color:var(--gray);line-height:1.7;max-width:470px;margin:0}
+.non-teaser-copy .non-teaser-values{font:11px 'IBM Plex Mono',monospace;letter-spacing:.1em;color:var(--bone);line-height:1.8}
+.non-teaser-values span{color:var(--blue-bright);padding:0 4px}
+.non-teaser-copy .non-teaser-small{font:10px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:var(--gray-dim)}
+@media(max-width:860px){.non-teaser{grid-template-columns:1fr}.non-teaser-visual{min-height:350px}.non-teaser-outline{max-height:330px}.non-teaser-copy{padding:38px 26px 46px}}
+@media(max-width:520px){.non-teaser-copy h2{font-size:clamp(35px,10vw,52px)}.non-teaser-visual{min-height:310px}}
