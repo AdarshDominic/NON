@@ -56,7 +56,14 @@
     const orig = btn.textContent;
     btn.disabled = true; btn.textContent = 'Sending\u2026';
     try {
-      const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+      const email = form.querySelector('input[name="email"]').value.trim();
+      const consent = form.querySelector('input[name="marketingConsent"]').checked;
+      if (!consent) throw new Error('consent required');
+      const res = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ email, marketingConsent: consent })
+      });
       if (!res.ok) throw new Error('bad response');
       form.reset();
       toast("You're in. Welcome to NON.");
