@@ -186,6 +186,8 @@
     <form class="story-form reveal" style="transition-delay:.12s" id="storyForm" action="https://formspree.io/f/xrpzprrl" method="POST">
       <div class="story-form-head"><span class="mono">// Guest Application</span><span class="mono" id="storyCount">0 / 600</span></div>
       <textarea id="storyText" name="story" maxlength="600" rows="6" required placeholder="Where are you starting from, and what are you building? Keep it real." aria-label="Your story"></textarea>
+      <label for="storyEmail" style="display:block;margin:12px 0 6px;font-size:13px">Email address <span aria-hidden="true">*</span></label>
+      <input type="email" id="storyEmail" name="email" required autocomplete="email" placeholder="you@example.com" aria-label="Email address for story submission confirmation" style="display:block;width:100%;box-sizing:border-box;margin-bottom:14px;padding:13px 14px;border:1px solid #777;border-radius:4px;background:transparent;color:inherit;font:inherit">
       <div class="story-row">
         <div class="ig-field">
           <span class="at">@</span>
