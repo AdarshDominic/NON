@@ -36,7 +36,15 @@
     const orig = btn.textContent;
     btn.disabled = true; btn.textContent = 'Sending\u2026';
     try {
-      const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+      const res = await fetch('/api/podcast', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          instagram: ig,
+          email: form.querySelector('input[name="email"]').value.trim(),
+          story: storyText.value.trim()
+        })
+      });
       if (!res.ok) throw new Error('bad response');
       form.reset();
       storyCount.textContent = '0 / 600';
